@@ -16,7 +16,7 @@ Benefits:
 - Configurable. We can easily inject our own config, or replace the services running within the app to suit our tests.
 
 Drawbacks:
-	- HttpClient ONLY. We do not run our tests against a browser implementation, meaning the person writing the tests is responsible for the exact requests being made, rather than clicking buttons etc.
+- HttpClient ONLY. We do not run our tests against a browser implementation, meaning the person writing the tests is responsible for the exact requests being made, rather than clicking buttons etc.
 
 ### Using a deployed Web Application
 I have supplied 2 versions using a deployed version of our web application. The first communicates via HttpClient as with the above, the second uses a headless
