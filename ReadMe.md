@@ -25,6 +25,8 @@ chrome browser via selenium.
 
 Benefits:
 - Ease of use. From a developers point of view, they can simply start interacting with selenium (or more likely a page model over selenium);
+
+Drawbacks:
 - Slow(er). We have to spin up an actual version of the web application, deploy it, then hit it. This all adds up;
 - Potential side effects. Because we are running all our tests against the same web deployment, they may interact with each other with unintented consequences;
 - Trickier mocking of functionality. If we wish to switch out a component for a test double, we need to build the functionality into the web application specifically, or use external fakes.
