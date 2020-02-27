@@ -27,4 +27,10 @@
     <ProjectReference Include="..\TestAutomationDemo.Website\TestAutomationDemo.Website.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

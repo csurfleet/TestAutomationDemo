@@ -20,12 +20,11 @@ namespace TestAutomationDemo.IntegrationTests.WithDeployedSut
     public class WithDeployedSutTests : IDisposable
     {
         private Process _process;
-        private IWebDriver _webDriver;
 
         public WithDeployedSutTests()
         {
             var projectName = "TestAutomationDemo.Website";
-            var projectPath = GetProjectPath("TestAutomationDemo", projectName);
+            var projectPath = Helpers.GetProjectPath("TestAutomationDemo", projectName);
 
             _process = new Process
             {
@@ -66,30 +65,6 @@ namespace TestAutomationDemo.IntegrationTests.WithDeployedSut
             // This is where things get ikky as we are dealing with the content directly, rather than though a browser
             var content = await response.Content.ReadAsStringAsync();
             content.Should().Contain("<h1 class=\"display-4\">Welcome</h1>");
-        }
-
-        private string GetProjectPath(string solutionFolderName, string projectName)
-        {
-
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            var dir = new System.IO.DirectoryInfo(path);
-            var counter = 0;
-
-            while(dir.Name != solutionFolderName)
-            {
-                dir = dir.Parent;
-                counter++;
-
-                if (counter > 5)
-                    throw new ArgumentException("Could not locate solution folder", nameof(solutionFolderName));
-            }
-
-
-            var target = dir.GetDirectories().FirstOrDefault(d => d.Name == projectName);
-            if (target == null)
-                throw new ArgumentException($"no project '{projectName}' found", nameof(projectName));
-
-            return target.FullName;
         }
     }
 }
