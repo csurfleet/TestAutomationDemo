@@ -35,7 +35,9 @@ namespace TestAutomationDemo.IntegrationTests.WithDeployedSutAndSelenium
                 throw new Exception(errorMessage);
             }
 
-            _webDriver = new ChromeDriver();
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments("headless");
+            _webDriver = new ChromeDriver(chromeOptions);
         }
 
         public void Dispose()
