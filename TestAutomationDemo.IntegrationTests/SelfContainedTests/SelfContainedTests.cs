@@ -47,7 +47,7 @@ namespace TestAutomationDemo.IntegrationTests.SelfContainedTests
 
             // This is where things get ikky as we are dealing with the content directly, rather than though a browser
             var content = await response.Content.ReadAsStringAsync();
-            content.Should().Contain("<h1 class=\"display - 4\">Welcome</h1>");
+            content.Should().Contain("<h1 class=\"display-4\">Welcome</h1>");
 
             // We can't connect selenium to this as we have the single HttpClient rather than the headless browser
             // Instead I'd use one of the ten bazillion HTML parsing tools to create a page model allowing the assertion to be more like:
